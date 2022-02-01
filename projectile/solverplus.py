@@ -1,12 +1,15 @@
 import math
-print("Hi there, you gun-toting psychopath. Would you like to know how high your bullet will be at any point in its trajectory? Of course you would.")
+print("Hi there, you gun-toting psychopath. Would you like to know how high your bullet will be at any point on its trajectory? Of course you would.")
 accel = 9.81
 vel = float(input("What is the initial velocity in metres per second? "))
 theta =float(input("What is the angle of elevation in degrees? " )) * (math.pi/180)
 dist = float(input("What is the horizontal distance travelled in metres? "))
 barh = float(input("What is the barrel height in metres? "))
 projh = barh + dist * math.tan(theta) - (accel*dist**2 / (2*(vel * math.cos(theta))**2))
-print("Your bullet is " + str(projh) + "m high.")
+if projh > 0:
+ print("Your bullet is " + str(projh) + "m high.")
+else:
+    print("Your bullet has landed on the ground by now.")
 
 #What I learned
 #Specifying/casting data type is important with inputs and precedes them eg float(input("What does this cost?"))
